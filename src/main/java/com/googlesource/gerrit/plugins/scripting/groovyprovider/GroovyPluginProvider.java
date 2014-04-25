@@ -61,7 +61,7 @@ class GroovyPluginProvider implements ServerPluginProvider {
 
 
   @Override
-  public ServerPlugin get(String name, File srcFile, PluginUser pluginUser,
+  public ServerPlugin get(File srcFile, PluginUser pluginUser,
       FileSnapshot snapshot, String pluginCanonicalWebUrl, File pluginDataDir)
       throws InvalidPluginException {
     GroovyPluginScriptEngine scriptEngine = scriptEngineProvider.get();
