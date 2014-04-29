@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.scripting.groovyprovider;
 
 import com.google.common.collect.Sets;
 import com.google.gerrit.extensions.annotations.Listen;
-import com.google.gerrit.server.PluginUser;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.plugins.InvalidPluginException;
 import com.google.gerrit.server.plugins.ServerPlugin;
 import com.google.gerrit.server.plugins.ServerPluginProvider;
@@ -53,23 +53,24 @@ class GroovyPluginProvider implements ServerPluginProvider {
       "groovy", "gvy", "gy", "gsh");
 
   private final Provider<GroovyPluginScriptEngine> scriptEngineProvider;
+  private final String providerPluginName;
 
   @Inject
-  public GroovyPluginProvider(Provider<GroovyPluginScriptEngine> scriptEngineProvider) {
+  public GroovyPluginProvider(
+      Provider<GroovyPluginScriptEngine> scriptEngineProvider,
+      @PluginName String providerPluginName) {
     this.scriptEngineProvider = scriptEngineProvider;
+    this.providerPluginName = providerPluginName;
   }
 
-
   @Override
-  public ServerPlugin get(File srcFile, PluginUser pluginUser,
-      FileSnapshot snapshot, String pluginCanonicalWebUrl, File pluginDataDir)
-      throws InvalidPluginException {
+  public ServerPlugin get(File srcFile, FileSnapshot snapshot,
+      PluginDescription description) throws InvalidPluginException {
     GroovyPluginScriptEngine scriptEngine = scriptEngineProvider.get();
-    return new ServerPlugin(getPluginName(srcFile), pluginCanonicalWebUrl,
-        pluginUser, srcFile, snapshot, new GroovyPluginScanner(
-            getPluginName(srcFile), scriptEngine,
-            srcFile), pluginDataDir,
-        scriptEngine.getGroovyClassLoader());
+    return new ServerPlugin(getPluginName(srcFile), description.canonicalUrl,
+        description.user, srcFile, snapshot, new GroovyPluginScanner(
+            getPluginName(srcFile), scriptEngine, srcFile),
+        description.dataDir, scriptEngine.getGroovyClassLoader());
   }
 
   @Override
@@ -86,5 +87,11 @@ class GroovyPluginProvider implements ServerPluginProvider {
     int dashPos = srcFileName.lastIndexOf('-');
     int dotPos = srcFileName.lastIndexOf('.');
     return srcFileName.substring(0, dashPos > 0 ? dashPos:dotPos);
+  }
+
+
+  @Override
+  public String getProviderPluginName() {
+    return providerPluginName;
   }
 }
