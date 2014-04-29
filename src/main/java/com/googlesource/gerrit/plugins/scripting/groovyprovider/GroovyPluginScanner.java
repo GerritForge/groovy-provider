@@ -17,6 +17,7 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Sets;
 import com.google.gerrit.server.plugins.AbstractPreloadedPluginScanner;
 import com.google.gerrit.server.plugins.InvalidPluginException;
+import com.google.gerrit.server.plugins.PluginEntry;
 import com.google.gerrit.server.plugins.Plugin.ApiType;
 
 import groovy.lang.Binding;
@@ -27,6 +28,7 @@ import groovy.util.ScriptException;
 import org.codehaus.groovy.runtime.InvokerHelper;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -51,18 +53,18 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
   }
 
   @Override
-  public <T> Optional<T> getResource(String resourcePath, Class<? extends T> resourceClass) {
+  public Optional<PluginEntry> getEntry(String resourcePath) {
     return Optional.absent();
   }
 
   @Override
-  public Optional<InputStream> getResourceInputStream(String resourcePath)
+  public InputStream getInputStream(PluginEntry entry)
       throws IOException {
-    return Optional.absent();
+    throw new FileNotFoundException();
   }
 
   @Override
-  public <T> Enumeration<T> resources(Class<? extends T> resourceClass) {
+  public Enumeration<PluginEntry> entries() {
     return Collections.emptyEnumeration();
   }
 

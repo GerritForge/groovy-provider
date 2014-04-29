@@ -16,7 +16,6 @@ package com.googlesource.gerrit.plugins.scripting.groovyprovider;
 
 import com.google.common.collect.Sets;
 import com.google.gerrit.extensions.annotations.Listen;
-import com.google.gerrit.server.PluginUser;
 import com.google.gerrit.server.plugins.InvalidPluginException;
 import com.google.gerrit.server.plugins.ServerPlugin;
 import com.google.gerrit.server.plugins.ServerPluginProvider;
@@ -61,15 +60,13 @@ class GroovyPluginProvider implements ServerPluginProvider {
 
 
   @Override
-  public ServerPlugin get(File srcFile, PluginUser pluginUser,
-      FileSnapshot snapshot, String pluginCanonicalWebUrl, File pluginDataDir)
-      throws InvalidPluginException {
+  public ServerPlugin get(File srcFile, FileSnapshot snapshot,
+      PluginDescription description) throws InvalidPluginException {
     GroovyPluginScriptEngine scriptEngine = scriptEngineProvider.get();
-    return new ServerPlugin(getPluginName(srcFile), pluginCanonicalWebUrl,
-        pluginUser, srcFile, snapshot, new GroovyPluginScanner(
-            getPluginName(srcFile), scriptEngine,
-            srcFile), pluginDataDir,
-        scriptEngine.getGroovyClassLoader());
+    return new ServerPlugin(getPluginName(srcFile), description.canonicalUrl,
+        description.user, srcFile, snapshot, new GroovyPluginScanner(
+            getPluginName(srcFile), scriptEngine, srcFile),
+        description.dataDir, scriptEngine.getGroovyClassLoader());
   }
 
   @Override
