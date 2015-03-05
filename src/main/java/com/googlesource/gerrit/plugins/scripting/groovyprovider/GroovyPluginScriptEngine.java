@@ -26,6 +26,6 @@ public class GroovyPluginScriptEngine extends GroovyScriptEngine {
   @Inject
   public GroovyPluginScriptEngine(SitePaths sitePaths)
       throws MalformedURLException {
-    super(new URL[] {sitePaths.plugins_dir.toURI().toURL()});
+    super(new URL[] {sitePaths.plugins_dir.toUri().toURL()});
   }
 }

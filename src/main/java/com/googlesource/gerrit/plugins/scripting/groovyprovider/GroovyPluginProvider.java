@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.scripting.groovyprovider;
 
 import com.google.common.collect.Sets;
+import com.google.common.io.Files;
 import com.google.gerrit.extensions.annotations.Listen;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.plugins.InvalidPluginException;
@@ -25,7 +26,7 @@ import com.google.inject.Provider;
 
 import org.eclipse.jgit.internal.storage.file.FileSnapshot;
 
-import java.io.File;
+import java.nio.file.Path;
 import java.util.Set;
 
 /**
@@ -64,7 +65,7 @@ class GroovyPluginProvider implements ServerPluginProvider {
   }
 
   @Override
-  public ServerPlugin get(File srcFile, FileSnapshot snapshot,
+  public ServerPlugin get(Path srcFile, FileSnapshot snapshot,
       PluginDescription description) throws InvalidPluginException {
     GroovyPluginScriptEngine scriptEngine = scriptEngineProvider.get();
     return new ServerPlugin(getPluginName(srcFile), description.canonicalUrl,
@@ -74,16 +75,14 @@ class GroovyPluginProvider implements ServerPluginProvider {
   }
 
   @Override
-  public boolean handles(File srcFile) {
-    String srcFileName = srcFile.getName();
-    String scriptExtension =
-        srcFileName.substring(srcFileName.lastIndexOf('.') + 1).toLowerCase();
-    return GROOVY_EXTENSIONS.contains(scriptExtension.toLowerCase());
+  public boolean handles(Path srcFile) {
+    String scriptExtension = Files.getFileExtension(srcFile.toString()).toLowerCase();
+    return GROOVY_EXTENSIONS.contains(scriptExtension);
   }
 
   @Override
-  public String getPluginName(File srcFile) {
-    String srcFileName = srcFile.getName();
+  public String getPluginName(Path srcFile) {
+    String srcFileName = srcFile.getFileName().toString();
     int dashPos = srcFileName.lastIndexOf('-');
     int dotPos = srcFileName.lastIndexOf('.');
     return srcFileName.substring(0, dashPos > 0 ? dashPos:dotPos);

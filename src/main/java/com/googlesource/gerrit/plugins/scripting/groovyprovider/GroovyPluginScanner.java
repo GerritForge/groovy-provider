@@ -27,12 +27,12 @@ import groovy.util.ScriptException;
 
 import org.codehaus.groovy.runtime.InvokerHelper;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -40,13 +40,13 @@ import java.util.Set;
 
 public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
 
-  public GroovyPluginScanner(String pluginName, GroovyPluginScriptEngine scriptEngine, File srcFile)
+  public GroovyPluginScanner(String pluginName, GroovyPluginScriptEngine scriptEngine, Path srcFile)
       throws InvalidPluginException {
     super(pluginName, getPluginVersion(srcFile), load(scriptEngine, srcFile), ApiType.PLUGIN);
   }
 
-  private static String getPluginVersion(File srcFile) {
-    String srcFileName = srcFile.getName();
+  private static String getPluginVersion(Path srcFile) {
+    String srcFileName = srcFile.getFileName().toString();
     int dashPos = srcFileName.lastIndexOf('-');
     int dotPos = srcFileName.lastIndexOf('.');
     return dashPos > 0 ? srcFileName.substring(dashPos + 1, dotPos) : "0";
@@ -68,10 +68,9 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     return Collections.emptyEnumeration();
   }
 
-  public static Set<Class<?>> load(GroovyPluginScriptEngine scriptEngine, File srcFile) throws InvalidPluginException {
+  public static Set<Class<?>> load(GroovyPluginScriptEngine scriptEngine, Path srcFile) throws InvalidPluginException {
     try {
-      return scanGroovyScriptBindings(scriptEngine.loadScriptByName(srcFile
-          .getName()));
+      return scanGroovyScriptBindings(scriptEngine.loadScriptByName(srcFile.toString()));
     } catch (ResourceException | ScriptException e) {
       throw new InvalidPluginException(
           "Cannot compile and execute Groovy script " + srcFile, e);
@@ -85,7 +84,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     try {
       Method mainMethod = scriptClass.getMethod("main", String[].class);
       int modifiers = mainMethod.getModifiers();
-      if (mainMethod != null && Modifier.isPublic(modifiers)
+      if (Modifier.isPublic(modifiers)
           && Modifier.isStatic(modifiers)) {
         classes.addAll(getMainBindings(scriptClass));
       }
@@ -99,8 +98,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     return classes;
   }
 
-  private static Set<Class<?>> getMainBindings(Class<?> scriptClass)
-      throws InvalidPluginException {
+  private static Set<Class<?>> getMainBindings(Class<?> scriptClass) {
     Set<Class<?>> classes = Sets.newHashSet();
     Binding binding = new Binding();
     Script script = InvokerHelper.createScript(scriptClass, binding);
@@ -122,8 +120,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     return classes;
   }
 
-  private static Set<Class<?>> scanArrayOfObjectOrClass(Object value)
-      throws InvalidPluginException {
+  private static Set<Class<?>> scanArrayOfObjectOrClass(Object value) {
     Set<Class<?>> classes = Sets.newHashSet();
     ArrayList<?> list = (ArrayList<?>) value;
     for (Object element : list) {
@@ -135,8 +132,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     return classes;
   }
 
-  private static Class<?> scanObjectOrClass(Object element)
-      throws InvalidPluginException {
+  private static Class<?> scanObjectOrClass(Object element) {
     if (Class.class.isAssignableFrom(element.getClass())) {
       return (Class<?>) element;
     } else {
