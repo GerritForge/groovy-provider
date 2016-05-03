@@ -70,7 +70,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
 
   public static Set<Class<?>> load(GroovyPluginScriptEngine scriptEngine, Path srcFile) throws InvalidPluginException {
     try {
-      return scanGroovyScriptBindings(scriptEngine.loadScriptByName(srcFile.toString()));
+      return scanGroovyScriptBindings(scriptEngine.loadScriptByName(srcFile.getFileName().toString()));
     } catch (ResourceException | ScriptException e) {
       throw new InvalidPluginException(
           "Cannot compile and execute Groovy script " + srcFile, e);
