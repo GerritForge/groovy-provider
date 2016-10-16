@@ -13,7 +13,7 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.scripting.groovyprovider;
 
-import com.google.common.base.Optional;
+import java.util.Optional;
 import com.google.common.collect.Sets;
 import com.google.gerrit.server.plugins.AbstractPreloadedPluginScanner;
 import com.google.gerrit.server.plugins.InvalidPluginException;
@@ -54,7 +54,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
 
   @Override
   public Optional<PluginEntry> getEntry(String resourcePath) {
-    return Optional.absent();
+    return Optional.empty();
   }
 
   @Override
