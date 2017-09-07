@@ -135,8 +135,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
   private static Class<?> scanObjectOrClass(Object element) {
     if (Class.class.isAssignableFrom(element.getClass())) {
       return (Class<?>) element;
-    } else {
-      return element.getClass();
     }
+    return element.getClass();
   }
 }
