@@ -18,6 +18,7 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.google.gerrit.extensions.annotations.Listen;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.server.config.GerritRuntime;
 import com.google.gerrit.server.plugins.InvalidPluginException;
 import com.google.gerrit.server.plugins.ServerPlugin;
 import com.google.gerrit.server.plugins.ServerPluginProvider;
@@ -60,15 +61,18 @@ class GroovyPluginProvider implements ServerPluginProvider {
   public ServerPlugin get(Path srcFile, FileSnapshot snapshot, PluginDescription description)
       throws InvalidPluginException {
     GroovyPluginScriptEngine scriptEngine = scriptEngineProvider.get();
+    String pluginName = getPluginName(srcFile);
     return new ServerPlugin(
-        getPluginName(srcFile),
+        pluginName,
         description.canonicalUrl,
         description.user,
         srcFile,
         snapshot,
         new GroovyPluginScanner(getPluginName(srcFile), scriptEngine, srcFile),
         description.dataDir,
-        scriptEngine.getGroovyClassLoader());
+        scriptEngine.getGroovyClassLoader(),
+        "groovy/" + pluginName,
+        GerritRuntime.DAEMON);
   }
 
   @Override
