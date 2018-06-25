@@ -13,20 +13,15 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.scripting.groovyprovider;
 
-import java.util.Optional;
 import com.google.common.collect.Sets;
 import com.google.gerrit.server.plugins.AbstractPreloadedPluginScanner;
 import com.google.gerrit.server.plugins.InvalidPluginException;
-import com.google.gerrit.server.plugins.PluginEntry;
 import com.google.gerrit.server.plugins.Plugin.ApiType;
-
+import com.google.gerrit.server.plugins.PluginEntry;
 import groovy.lang.Binding;
 import groovy.lang.Script;
 import groovy.util.ResourceException;
 import groovy.util.ScriptException;
-
-import org.codehaus.groovy.runtime.InvokerHelper;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +31,9 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.Optional;
 import java.util.Set;
+import org.codehaus.groovy.runtime.InvokerHelper;
 
 public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
 
@@ -58,8 +55,7 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
   }
 
   @Override
-  public InputStream getInputStream(PluginEntry entry)
-      throws IOException {
+  public InputStream getInputStream(PluginEntry entry) throws IOException {
     throw new FileNotFoundException();
   }
 
@@ -68,12 +64,12 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     return Collections.emptyEnumeration();
   }
 
-  public static Set<Class<?>> load(GroovyPluginScriptEngine scriptEngine, Path srcFile) throws InvalidPluginException {
+  public static Set<Class<?>> load(GroovyPluginScriptEngine scriptEngine, Path srcFile)
+      throws InvalidPluginException {
     try {
       return scanGroovyScriptBindings(scriptEngine.loadScriptByName(srcFile.toString()));
     } catch (ResourceException | ScriptException e) {
-      throw new InvalidPluginException(
-          "Cannot compile and execute Groovy script " + srcFile, e);
+      throw new InvalidPluginException("Cannot compile and execute Groovy script " + srcFile, e);
     }
   }
 
@@ -84,16 +80,15 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
     try {
       Method mainMethod = scriptClass.getMethod("main", String[].class);
       int modifiers = mainMethod.getModifiers();
-      if (Modifier.isPublic(modifiers)
-          && Modifier.isStatic(modifiers)) {
+      if (Modifier.isPublic(modifiers) && Modifier.isStatic(modifiers)) {
         classes.addAll(getMainBindings(scriptClass));
       }
     } catch (NoSuchMethodException e) {
       classes.add(scriptClass);
 
     } catch (SecurityException e) {
-      throw new InvalidPluginException("Cannot access Groovy script class "
-          + scriptClass.getName(), e);
+      throw new InvalidPluginException(
+          "Cannot access Groovy script class " + scriptClass.getName(), e);
     }
     return classes;
   }

@@ -15,17 +15,14 @@ package com.googlesource.gerrit.plugins.scripting.groovyprovider;
 
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
-
+import groovy.util.GroovyScriptEngine;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import groovy.util.GroovyScriptEngine;
 
 public class GroovyPluginScriptEngine extends GroovyScriptEngine {
 
   @Inject
-  public GroovyPluginScriptEngine(SitePaths sitePaths)
-      throws MalformedURLException {
+  public GroovyPluginScriptEngine(SitePaths sitePaths) throws MalformedURLException {
     super(new URL[] {sitePaths.plugins_dir.toUri().toURL()});
   }
 }

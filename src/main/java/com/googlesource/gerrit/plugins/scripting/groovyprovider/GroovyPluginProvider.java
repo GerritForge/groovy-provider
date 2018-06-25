@@ -23,35 +23,27 @@ import com.google.gerrit.server.plugins.ServerPlugin;
 import com.google.gerrit.server.plugins.ServerPluginProvider;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
-import org.eclipse.jgit.internal.storage.file.FileSnapshot;
-
 import java.nio.file.Path;
 import java.util.Set;
+import org.eclipse.jgit.internal.storage.file.FileSnapshot;
 
 /**
  * Groovy scripting plugins.
  *
- * Allows to define a Groovy class to implement any type of Gerrit plugin.
+ * <p>Allows to define a Groovy class to implement any type of Gerrit plugin.
  *
- * Example of Groovy SSH Plugin (hello-1.0.groovy):
- * ------------------------------------------------ import
- * com.google.gerrit.sshd.SshCommand import
- * com.google.gerrit.extensions.annotations.Export
+ * <p>Example of Groovy SSH Plugin (hello-1.0.groovy):
+ * ------------------------------------------------ import com.google.gerrit.sshd.SshCommand import
+ * com.google.gerrit.extensions.annotations.Export @Export("groovy") class GroovyCommand extends
+ * SshCommand { public void run() { stdout.println("Hello Gerrit from Groovy !") }
  *
- * @Export("groovy")
- * class GroovyCommand extends SshCommand {
- *   public void run() {
- *   stdout.println("Hello Gerrit from Groovy !")
- * }
- *
- * The above example add a "hello groovy" command to Gerrit
- * SSH interface that displays "Hello Gerrit from Groovy !".
+ * <p>The above example add a "hello groovy" command to Gerrit SSH interface that displays "Hello
+ * Gerrit from Groovy !".
  */
 @Listen
 class GroovyPluginProvider implements ServerPluginProvider {
-  private static final Set<String> GROOVY_EXTENSIONS = Sets.newHashSet(
-      "groovy", "gvy", "gy", "gsh");
+  private static final Set<String> GROOVY_EXTENSIONS =
+      Sets.newHashSet("groovy", "gvy", "gy", "gsh");
 
   private final Provider<GroovyPluginScriptEngine> scriptEngineProvider;
   private final String providerPluginName;
@@ -65,13 +57,18 @@ class GroovyPluginProvider implements ServerPluginProvider {
   }
 
   @Override
-  public ServerPlugin get(Path srcFile, FileSnapshot snapshot,
-      PluginDescription description) throws InvalidPluginException {
+  public ServerPlugin get(Path srcFile, FileSnapshot snapshot, PluginDescription description)
+      throws InvalidPluginException {
     GroovyPluginScriptEngine scriptEngine = scriptEngineProvider.get();
-    return new ServerPlugin(getPluginName(srcFile), description.canonicalUrl,
-        description.user, srcFile, snapshot, new GroovyPluginScanner(
-            getPluginName(srcFile), scriptEngine, srcFile),
-        description.dataDir, scriptEngine.getGroovyClassLoader());
+    return new ServerPlugin(
+        getPluginName(srcFile),
+        description.canonicalUrl,
+        description.user,
+        srcFile,
+        snapshot,
+        new GroovyPluginScanner(getPluginName(srcFile), scriptEngine, srcFile),
+        description.dataDir,
+        scriptEngine.getGroovyClassLoader());
   }
 
   @Override
@@ -85,9 +82,8 @@ class GroovyPluginProvider implements ServerPluginProvider {
     String srcFileName = srcFile.getFileName().toString();
     int dashPos = srcFileName.lastIndexOf('-');
     int dotPos = srcFileName.lastIndexOf('.');
-    return srcFileName.substring(0, dashPos > 0 ? dashPos:dotPos);
+    return srcFileName.substring(0, dashPos > 0 ? dashPos : dotPos);
   }
-
 
   @Override
   public String getProviderPluginName() {

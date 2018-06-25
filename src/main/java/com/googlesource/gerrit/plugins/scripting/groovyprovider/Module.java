@@ -22,8 +22,7 @@ public class Module extends AbstractModule {
 
   @Override
   protected void configure() {
-    DynamicSet.bind(binder(), ServerPluginProvider.class)
-       .to(GroovyPluginProvider.class);
+    DynamicSet.bind(binder(), ServerPluginProvider.class).to(GroovyPluginProvider.class);
     bind(GroovyPluginScriptEngine.class);
   }
 }
