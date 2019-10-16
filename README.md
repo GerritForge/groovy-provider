@@ -14,7 +14,7 @@ name in the plugins directory, and from the root of the gerrit tree run:
 The resulting artifact can be found under:
 
 ```
- bazel-genfiles/plugins/groovy-provider/groovy-provider.jar
+ bazel-bin/plugins/groovy-provider/groovy-provider.jar
 ```
 
 To test deploy the review plugin [1] and copy this Groovy Provider plugin
