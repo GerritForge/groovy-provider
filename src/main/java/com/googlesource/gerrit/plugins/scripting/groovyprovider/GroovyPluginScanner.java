@@ -29,10 +29,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 import org.codehaus.groovy.runtime.InvokerHelper;
 
 public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
@@ -60,8 +59,8 @@ public class GroovyPluginScanner extends AbstractPreloadedPluginScanner {
   }
 
   @Override
-  public Enumeration<PluginEntry> entries() {
-    return Collections.emptyEnumeration();
+  public Stream<PluginEntry> entries() {
+    return Stream.empty();
   }
 
   public static Set<Class<?>> load(GroovyPluginScriptEngine scriptEngine, Path srcFile)
