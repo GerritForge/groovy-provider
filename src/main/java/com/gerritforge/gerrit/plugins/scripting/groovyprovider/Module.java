@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.googlesource.gerrit.plugins.scripting.groovyprovider;
+package com.gerritforge.gerrit.plugins.scripting.groovyprovider;
 
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.plugins.ServerPluginProvider;
