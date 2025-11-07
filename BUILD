@@ -6,9 +6,9 @@ gerrit_plugin(
     resources = glob(["src/main/resources/**/*"]),
     manifest_entries = [
         "Implementation-Title: Groovy Provider",
-        "Implementation-URL: https://gerrit.googlesource.com/plugins/scripting/groovy-provider",
+        "Implementation-URL: https://github.com/GerritForge/groovy-provider",
         "Gerrit-PluginName: groovy-provider",
-        "Gerrit-Module: com.googlesource.gerrit.plugins.scripting.groovyprovider.Module",
+        "Gerrit-Module: com.gerritforge.gerrit.plugins.scripting.groovyprovider.Module",
     ],
     deps = [
         "@groovy//jar",
