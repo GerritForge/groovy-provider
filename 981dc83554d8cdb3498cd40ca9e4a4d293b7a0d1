@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6638416b_00248a32",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019121
+      },
+      "writtenOn": "2025-11-07T19:32:02Z",
+      "side": 1,
+      "message": "nit: why `github` if repo is available @ `https://review.gerrithub.io/GerritForge/groovy-provider`?",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 75
+      },
+      "revId": "981dc83554d8cdb3498cd40ca9e4a4d293b7a0d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
