@@ -1,4 +1,8 @@
-load("//tools/bzl:plugin.bzl", "gerrit_plugin")
+load(
+    "@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl",
+    "gerrit_plugin",
+    "gerrit_plugin_dependency_tests",
+)
 
 gerrit_plugin(
     name = "groovy-provider",
@@ -11,6 +15,8 @@ gerrit_plugin(
         "Gerrit-Module: com.gerritforge.gerrit.plugins.scripting.groovyprovider.Module",
     ],
     deps = [
-        "@groovy//jar",
+        "@groovy-provider_plugin_deps//:org_codehaus_groovy_groovy_all",
     ],
 )
+
+gerrit_plugin_dependency_tests(plugin = "groovy-provider")

@@ -5,19 +5,22 @@ This plugin is built with Bazel.
 
 Clone (or link) this plugin to the `plugins` directory of Gerrit's source tree.
 
-Put the external dependency Bazel build file into the Gerrit /plugins directory,
-replacing the existing empty one.
+Wire this plugin's Bazel module into Gerrit's plugin dependency module fragment.
+If this is the only external plugin, copy the fragment:
 
 ```
   cd gerrit/plugins
-  rm external_plugin_deps.bzl
-  ln -s @PLUGIN@/external_plugin_deps.bzl .
+  cp @PLUGIN@/external_plugin_deps.MODULE.bazel external_plugin_deps.MODULE.bazel
 ```
 
-Then issue
+If `external_plugin_deps.MODULE.bazel` already contains entries for other
+plugins, merge the contents of `@PLUGIN@/external_plugin_deps.MODULE.bazel`
+into it instead.
+
+Then issue:
 
 ```
-  bazel build plugins/@PLUGIN@
+  bazelisk build //plugins/@PLUGIN@
 ```
 
 in the root of Gerrit's source tree to build
