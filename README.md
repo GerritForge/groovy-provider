@@ -19,11 +19,11 @@ How to build
 ============
 
 To build, link this directory under Gerrit's tree plugins directory, merge
-the dependencies from external_plugin_deps.bzl into the file of the same
-name in the plugins directory, and from the root of the gerrit tree run:
+the contents of `external_plugin_deps.MODULE.bazel` into the file of the same
+name in Gerrit's `plugins` directory, and from the root of the Gerrit tree run:
 
 ```
-  bazel build plugins/groovy-provider
+  bazelisk build //plugins/groovy-provider
 ```
 
 The resulting artifact can be found under:

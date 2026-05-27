@@ -1,0 +1,23 @@
+module(name = "gerrit-groovy-provider")
+
+bazel_dep(name = "rules_java", version = "8.16.1")
+bazel_dep(name = "rules_jvm_external", version = "6.10")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    name = "groovy-provider_plugin_deps",
+    artifacts = [
+        "org.codehaus.groovy:groovy-all:2.4.12",
+    ],
+    duplicate_version_warning = "error",
+    fail_if_repin_required = True,
+    fail_on_missing_checksum = True,
+    fetch_sources = True,
+    lock_file = "//:groovy-provider_plugin_deps.lock.json",
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    version_conflict_policy = "pinned",
+)
+use_repo(maven, "groovy-provider_plugin_deps")
