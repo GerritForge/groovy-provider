@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e77f9b9_7c6c5650",
+        "filename": ".bazelversion",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-09T08:48:10Z",
+      "side": 1,
+      "message": "There\u0027s no need to copy \u0026 paste `.bazelversion`.",
+      "revId": "34a6b1af702351af440d549158e41713a810beac",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c3868f3_d2155c93",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-09T08:48:10Z",
+      "side": 1,
+      "message": "No need to copy, use `ln -sf`",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 13,
+        "endChar": 4
+      },
+      "revId": "34a6b1af702351af440d549158e41713a810beac",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
