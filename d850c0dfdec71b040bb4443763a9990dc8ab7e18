@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a2f3740_40f84a1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-30T21:55:01Z",
+      "side": 1,
+      "message": "```suggestion\nRedirect Admin Users for BSL awareness page\n```",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "d850c0dfdec71b040bb4443763a9990dc8ab7e18",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce247ded_51fb716c",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/AdminLoginRedirectListener.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-30T21:55:01Z",
+      "side": 1,
+      "message": "This is for BSL license check: can we give a more meaningful name?\n\nWhat about `RedirectAdminsToBslUrl`?",
+      "revId": "d850c0dfdec71b040bb4443763a9990dc8ab7e18",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb246cc2_63aaabcc",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/AdminLoginRedirectListener.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-30T21:55:01Z",
+      "side": 1,
+      "message": "This should point to GerritForge\u0027s domain.\n\n\n\n```suggestion\n      \"https://bsl.gerritforge.com\";\n```",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 59
+      },
+      "revId": "d850c0dfdec71b040bb4443763a9990dc8ab7e18",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08d5564c_0195ce73",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/AdminLoginRedirectListener.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-30T21:55:01Z",
+      "side": 1,
+      "message": "We should also communicate which plugin has caused the redirection to the `ADMIN_REDIRECT_URL` so that the user can see why this redirection happened.",
+      "range": {
+        "startLine": 45,
+        "startChar": 17,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "d850c0dfdec71b040bb4443763a9990dc8ab7e18",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
