@@ -13,6 +13,7 @@ gerrit_plugin(
         "Implementation-URL: https://github.com/GerritForge/groovy-provider",
         "Gerrit-PluginName: groovy-provider",
         "Gerrit-Module: com.gerritforge.gerrit.plugins.scripting.groovyprovider.Module",
+        "Gerrit-HttpModule: com.gerritforge.gerrit.plugins.scripting.groovyprovider.HttpModule",
     ],
     deps = [
         "@groovy-provider_plugin_deps//:org_codehaus_groovy_groovy_all",
