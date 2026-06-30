@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bcd629a_acf8bbbc",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/AdminRedirectServlet.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-06-30T16:12:12Z",
+      "side": 1,
+      "message": "```suggestion\n// Copyright (C) 2026 GerritForge, Inc.\n```",
+      "revId": "ecad6a5eeedf9baf8443f80b1e322949906a2a6e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
