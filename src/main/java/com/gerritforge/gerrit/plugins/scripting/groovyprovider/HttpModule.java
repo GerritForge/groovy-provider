@@ -13,12 +13,13 @@ package com.gerritforge.gerrit.plugins.scripting.groovyprovider;
 
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.httpd.WebLoginListener;
-import com.google.inject.AbstractModule;
+import com.google.inject.servlet.ServletModule;
 
-public class HttpModule extends AbstractModule {
+public class HttpModule extends ServletModule {
 
   @Override
-  protected void configure() {
+  protected void configureServlets() {
     DynamicSet.bind(binder(), WebLoginListener.class).to(AdminLoginRedirectListener.class);
+    serve("/admin-redirect").with(AdminRedirectServlet.class);
   }
 }
