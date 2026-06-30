@@ -11,6 +11,7 @@
 
 package com.gerritforge.gerrit.plugins.scripting.groovyprovider;
 
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.httpd.WebLoginListener;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.permissions.GlobalPermission;
@@ -25,14 +26,13 @@ import javax.servlet.http.HttpServletResponse;
 @Singleton
 class AdminLoginRedirectListener implements WebLoginListener {
 
-  private static final String ADMIN_REDIRECT_URL =
-      "https://pippo-pluto-paperino-licence-validator.com";
-
   private final PermissionBackend permissionBackend;
+  private final String pluginName;
 
   @Inject
-  AdminLoginRedirectListener(PermissionBackend permissionBackend) {
+  AdminLoginRedirectListener(PermissionBackend permissionBackend, @PluginName String pluginName) {
     this.permissionBackend = permissionBackend;
+    this.pluginName = pluginName;
   }
 
   @Override
@@ -42,7 +42,8 @@ class AdminLoginRedirectListener implements WebLoginListener {
     try {
       if (permissionBackend.user(user).test(GlobalPermission.ADMINISTRATE_SERVER)
           && !hasValidLicence()) {
-        response.sendRedirect(ADMIN_REDIRECT_URL);
+        response.sendRedirect(
+            request.getContextPath() + "/plugins/" + pluginName + "/admin-redirect");
       }
     } catch (PermissionBackendException e) {
       // fall through and let the normal post-login redirect happen
