@@ -13,8 +13,10 @@ gerrit_plugin(
         "Implementation-URL: https://github.com/GerritForge/groovy-provider",
         "Gerrit-PluginName: groovy-provider",
         "Gerrit-Module: com.gerritforge.gerrit.plugins.scripting.groovyprovider.Module",
+        "Gerrit-HttpModule: com.gerritforge.bsl.licence.manager.BslLicenceHttpModule",
     ],
     deps = [
+        "@gerrit-bsl-license//:gerrit-bsl-license",
         "@groovy-provider_plugin_deps//:org_codehaus_groovy_groovy_all",
     ],
 )
