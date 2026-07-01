@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f2ad1c_edba67d6",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T08:49:39Z",
+      "side": 1,
+      "message": "@luca.milanesio@gmail.com The try...catch is required, as permissionBackend().test throws `PermissionBackendException;`, but `onLogin` only handles IOException. So we need to catch the",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 5
+      },
+      "revId": "0c51f9fd93876ed544186e48034d0360da498dc0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
