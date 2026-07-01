@@ -10,6 +10,12 @@
 
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 
+bazel_dep(name = "gerrit-bsl-license", version = "1.0.0")
+local_path_override(
+    module_name = "gerrit-bsl-license",
+    path = "plugins/gerrit-bsl-license",
+)
+
 bazel_dep(name = "gerrit-groovy-provider")
 local_path_override(
     module_name = "gerrit-groovy-provider",
