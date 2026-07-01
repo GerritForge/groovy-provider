@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa3ffa8b_6d8cdf47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T19:35:05Z",
+      "side": 1,
+      "message": "The README.md needs updating with the new instructions on how to build it.",
+      "revId": "1ddd1ff68a7755000be48329b73d805dca341323",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cef23be1_050c92a5",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T19:35:05Z",
+      "side": 1,
+      "message": "```suggestion\n        \"Gerrit-HttpModule: com.gerritforge.gerrit.plugins.bsl.HttpModule\",\n```",
+      "revId": "1ddd1ff68a7755000be48329b73d805dca341323",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c822d5_cae23c3a",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T19:35:05Z",
+      "side": 1,
+      "message": "```suggestion\n        \"//plugins/gerrit-bsl-license\",\n```",
+      "revId": "1ddd1ff68a7755000be48329b73d805dca341323",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d863f4d4_21ad9cdc",
+        "filename": "external_plugin_deps.MODULE.bazel",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T19:35:05Z",
+      "side": 1,
+      "message": "There\u0027s no need to use the external dependencies, we have everything in-tree.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "1ddd1ff68a7755000be48329b73d805dca341323",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
