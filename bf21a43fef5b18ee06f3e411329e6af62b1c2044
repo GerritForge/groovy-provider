@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "293a9103_6ad7f4c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T08:54:30Z",
+      "side": 1,
+      "message": "```suggestion\nAll regular users are unaffected, there is no functionality limitation\nor any other consequences.\n```",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 46
+      },
+      "revId": "bf21a43fef5b18ee06f3e411329e6af62b1c2044",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
