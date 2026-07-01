@@ -22,6 +22,30 @@
       },
       "revId": "315f3899625dd8aed0878ac5263ecb32a3c21165",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a98910_5a0d0683",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T10:58:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84ec96e2_62858fc5",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "315f3899625dd8aed0878ac5263ecb32a3c21165",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
