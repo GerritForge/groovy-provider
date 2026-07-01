@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63761885_a9925ee3",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T11:13:18Z",
+      "side": 1,
+      "message": "Nit:\n```suggestion\n    String callbackLocation \u003d response.getHeader(\"Location\");\n    if (callbackLocation !\u003d null\n        \u0026\u0026 permissionBackend.user(user).testOrFalse(GlobalPermission.ADMINISTRATE_SERVER)\n        \u0026\u0026 !hasValidLicence()) {\n      String redirectUrl \u003d buildRedirectUrl(callbackLocation);\n```\n\nAt first glance, it\u0027s not obvious why we need to check for the status codes. I suspect it\u0027s because you want to ensure that the response has a `Location` header.\n\nYou could check for that directly as above and simplify the code a touch.\nAnd then you can remove the imports for the status codes.\n\nFeel free to ignore...",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 63
+      },
+      "revId": "8cd592fafa4231ccdcdc391615a5991b9f725ba2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
