@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e968ac_e360b067",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T12:42:26Z",
+      "side": 1,
+      "message": "These constants must be imported.",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 48
+      },
+      "revId": "35b98f8033a00a856e9cc16b2065684ed16b99a5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
