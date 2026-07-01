@@ -18,6 +18,15 @@ with temporary commercial restrictions.
 How to build
 ============
 
+This plugin depends on the
+[GerritForge's gerrit-bsl-license](https://github.com/GerritForge/gerrit-bsl-license)
+code for installing its `HttpModule` for the BSL servlet.
+Clone the `gerrit-bsl-license` into the Gerrit's tree plugins directory.
+
+```
+  git clone https://github.com/GerritForge/gerrit-bsl-license
+```
+
 To build, link this directory under Gerrit's tree plugins directory, merge
 the contents of `external_plugin_deps.MODULE.bazel` into the file of the same
 name in Gerrit's `plugins` directory, and from the root of the Gerrit tree run:
