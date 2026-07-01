@@ -65,6 +65,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e01f2fe_1dcc27a3",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/AdminLoginRedirectListener.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T07:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce247ded_51fb716c",
+      "revId": "d850c0dfdec71b040bb4443763a9990dc8ab7e18",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb246cc2_63aaabcc",
