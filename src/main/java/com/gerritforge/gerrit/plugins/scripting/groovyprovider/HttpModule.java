@@ -11,14 +11,13 @@
 
 package com.gerritforge.gerrit.plugins.scripting.groovyprovider;
 
-import com.google.gerrit.extensions.registration.DynamicSet;
-import com.google.gerrit.httpd.WebLoginListener;
+import com.gerritforge.bsl.licence.manager.BslLicenceHttpModule;
 import com.google.inject.AbstractModule;
 
 public class HttpModule extends AbstractModule {
 
   @Override
   protected void configure() {
-    DynamicSet.bind(binder(), WebLoginListener.class).to(RedirectAdminsToBslUrl.class);
+    install(new BslLicenceHttpModule());
   }
 }
