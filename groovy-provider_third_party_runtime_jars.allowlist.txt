@@ -1,0 +1,5 @@
+<<<<<<< HEAD   (bbae81143737ff056974348000957ba9760d1246 Redirect admin users to GerritForge's BSL awareness page)
+=======
+gerrit-bsl-license
+groovy-all
+>>>>>>> CHANGE (5f75e86146f381f22a19e7035d82758d5e5ebc73 Use gerrit-bsl-license's provided HttpModule)
