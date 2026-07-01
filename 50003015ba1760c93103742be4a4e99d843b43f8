@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f02da76_4df83e6d",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T07:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d53047e4_1743f239",
+      "revId": "50003015ba1760c93103742be4a4e99d843b43f8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a01553a_8ec29d24",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-07-01T07:33:39Z",
       "side": 1,
       "message": "This looks wrong: we should redirect to the request URL, not the canonical URL.",
+      "range": {
+        "startLine": 67,
+        "startChar": 54,
+        "endLine": 67,
+        "endChar": 69
+      },
+      "revId": "50003015ba1760c93103742be4a4e99d843b43f8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "295d2a40_06526535",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1020677
+      },
+      "writtenOn": "2026-07-01T07:49:18Z",
+      "side": 1,
+      "message": "Ahh, good point yes, didn\u0027t realise we could access that! 🤦",
+      "parentUuid": "8a01553a_8ec29d24",
       "range": {
         "startLine": 67,
         "startChar": 54,
