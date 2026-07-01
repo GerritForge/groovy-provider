@@ -16,6 +16,7 @@ gerrit_plugin(
         "Gerrit-HttpModule: com.gerritforge.gerrit.plugins.scripting.groovyprovider.HttpModule",
     ],
     deps = [
+        "@gerrit-bsl-license//:gerrit-bsl-license",
         "@groovy-provider_plugin_deps//:org_codehaus_groovy_groovy_all",
     ],
 )
