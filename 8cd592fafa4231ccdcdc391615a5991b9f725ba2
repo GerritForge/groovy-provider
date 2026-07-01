@@ -22,6 +22,30 @@
       },
       "revId": "8cd592fafa4231ccdcdc391615a5991b9f725ba2",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90f2b718_9b560c6a",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T12:41:14Z",
+      "side": 1,
+      "message": "Extracted to a self-describing method: the purpose was different as you have to keep the normal login rediretion flow and allow the response to reach the client for allowing a smooth experience without any leak or removal of login cookies.",
+      "parentUuid": "63761885_a9925ee3",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 63
+      },
+      "revId": "8cd592fafa4231ccdcdc391615a5991b9f725ba2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
