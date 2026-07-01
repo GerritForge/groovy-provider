@@ -22,6 +22,23 @@
       },
       "revId": "bf21a43fef5b18ee06f3e411329e6af62b1c2044",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83acbaee_20c2d60d",
+        "filename": "src/main/java/com/gerritforge/gerrit/plugins/scripting/groovyprovider/RedirectAdminsToBslUrl.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T10:52:03Z",
+      "side": 1,
+      "message": "I tested this E2E, and it doesn\u0027t run smoothly: the `onLogin()` is called *after* the login has been completed, therefore the `response` contains the target URL, not the `request`.",
+      "revId": "bf21a43fef5b18ee06f3e411329e6af62b1c2044",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
