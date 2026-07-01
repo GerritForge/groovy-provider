@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e21b1f_a162ef83",
+        "filename": "Jenkinsfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-01T19:51:01Z",
+      "side": 1,
+      "message": "```suggestion\npluginPipeline(extraGhRepos: [\u0027gerrit-bsl-license\u0027])\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 27
+      },
+      "revId": "abca47317be2ee5b7c3889c63ccbb9dc659afa42",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
